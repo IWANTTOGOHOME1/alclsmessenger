@@ -8,10 +8,10 @@ import datetime
 import time
 
 HOST="0.0.0.0"
-PORT=888
+PORT=887
 
 clients=[]
-ip="211.195.116.187"
+ip="" #편의용
 maxUser=10
 version = "AMS102" #미친메신저서버의정석 1세대 v0.2
 availableClientVersion = ["AM102", "COS202"]
