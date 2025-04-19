@@ -1,10 +1,13 @@
 #집가고싶다 inc. 미친메신저의정석 클라이언트 (1세대)
 #특정 인물들만 이해할수 있는 미친 메신저
 
+#미친메신저의정석 1세대 v02.01
+
 import socket
 import threading
 import sys
 import time
+import os
 
 version="AM102"
 
@@ -66,8 +69,17 @@ except Exception as e:
 
 receiving.start()
 
-print(f"\n집가고싶다 inc.\n미친메신저의정석 (1세대) ({version})\n\n서버주소 : {HOST}\n서버포트 : {PORT}\n이 클라이언트의 이름 : {name}\n\n", end="")
+print(f"\n집가고싶다 inc.\n미친메신저의정석 (1세대) ({version})\n\n서버주소 : {HOST}\n서버포트 : {PORT}\n이 클라이언트의 이름 : {name}\n!exit를 입력하면 프로그램을 종료합니다.\n\n", end="")
 
 while True:
     message=input()
-    clientSocket.sendall(message.encode())
+    if message == "!exit":
+        print("\n3초후에 프로그램을 종료합니다.", end = "")
+        time.sleep(1)
+        print("\r2초후에 프로그램을 종료합니다.", end = "")
+        time.sleep(1)
+        print("\r1초후에 프로그램을 종료합니다.", end = "")
+        time.sleep(1)
+        os._exit(0)
+    else:
+        clientSocket.sendall(message.encode())
